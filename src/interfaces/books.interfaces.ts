@@ -1,8 +1,8 @@
-export interface IBook{
+export interface IBook {
      id: number;
      name: string;
      pages: number;
      category?: string;
      createdAt: Date;
-     updatedAt: Date;    
+     updatedAt: Date;
 }

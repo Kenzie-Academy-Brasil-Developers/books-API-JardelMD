@@ -8,4 +8,4 @@ app.use(json());
 
 app.use("/books", booksRouter);
 
-app.use(HandleErrors.execute)
+app.use(HandleErrors.execute);
