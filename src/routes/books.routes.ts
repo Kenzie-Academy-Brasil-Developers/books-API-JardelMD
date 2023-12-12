@@ -1,17 +1,17 @@
 import { Router } from "express";
 import { BooksControllers } from "../controllers/books.controllers";
-import { bookValidation } from "../middlewares/books.middleware";
+import { BookValidation } from "../middlewares/books.middleware";
 
 export const booksRouter = Router();
 
 const booksControllers = new BooksControllers();
 
-booksRouter.post("/", bookValidation.isBookNameValid, booksControllers.createBook);
+booksRouter.post("/", BookValidation.isBookNameValid, booksControllers.createBook);
 
 booksRouter.get("/", booksControllers.getBooks);
 
-booksRouter.get("/:id", bookValidation.isBookIdValid, booksControllers.getOneBook);
+booksRouter.get("/:id", BookValidation.isBookIdValid, booksControllers.getOneBook);
 
-booksRouter.patch("/:id", bookValidation.isBookIdValid, bookValidation.isBookNameValid, booksControllers.updateBook);
+booksRouter.patch("/:id", BookValidation.isBookIdValid, BookValidation.isBookNameValid, booksControllers.updateBook);
 
-booksRouter.delete("/:id", bookValidation.isBookIdValid, booksControllers.deleteBook);
+booksRouter.delete("/:id", BookValidation.isBookIdValid, booksControllers.deleteBook);
