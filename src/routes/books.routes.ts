@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { BooksControllers } from "../controllers/books.controllers";
-import { BookValidation } from "../middlewares/books.middleware";
+import { BookValidation } from "../middlewares/books.middlewares";
 
 export const booksRouter = Router();
 
