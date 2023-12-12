@@ -3,8 +3,8 @@ import { BooksServices } from "../services/books.services";
 
 export class BooksControllers {
     createBooks(req: Request, res: Response): Response {
-        const BooksService = new BooksServices();
-        const response = BooksService.createBook(req.body);
+        const booksService = new BooksServices();
+        const response = booksService.createBook(req.body);
         return res.status(201).json(response);
     }
 
