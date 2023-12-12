@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { BooksServices } from "../services/books.services";
 
 export class BooksControllers {
-    createBook(req: Request, res: Response): Response {
+    createBooks(req: Request, res: Response): Response {
         const BooksService = new BooksServices();
         const response = BooksService.createBook(req.body);
         return res.status(201).json(response);

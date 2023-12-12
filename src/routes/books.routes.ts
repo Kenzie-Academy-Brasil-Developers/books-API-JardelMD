@@ -6,7 +6,7 @@ export const booksRouter = Router();
 
 const booksControllers = new BooksControllers();
 
-booksRouter.post("/", bookValidation.isBookNameValid, booksControllers.createBook);
+booksRouter.post("/", bookValidation.isBookNameValid, booksControllers.createBooks);
 
 booksRouter.get("/", booksControllers.getBooks);
 
