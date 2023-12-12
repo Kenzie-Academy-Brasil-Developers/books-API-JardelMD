@@ -1,13 +1,11 @@
 import { generateId, booksDatabase } from "../database/database";
-import { IBook } from "../interfaces/books.interfaces";
+import { IBook, Data, Types } from "../interfaces/books.interfaces";
 
 export class BooksServices {
-    createBook(name: string, pages: number, category?: string) {
+    createBook(data:Types) {
         const newBook: IBook = {
             id: generateId(),
-            name,
-            pages,
-            category,
+            ...data,
             createdAt: new Date(),
             updatedAt: new Date()
         };
@@ -24,7 +22,7 @@ export class BooksServices {
         return findBook;
     }
 
-    updateBook(id: string, data: any) {
+    updateBook(id: string, data:Data) {
         const index = booksDatabase.findIndex(book => book.id === Number(id));
         booksDatabase[index] = {
             ...booksDatabase[index],

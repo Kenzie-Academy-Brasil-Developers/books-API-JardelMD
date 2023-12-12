@@ -6,3 +6,6 @@ export interface IBook {
      createdAt: Date;
      updatedAt: Date;
 }
+
+export type Types = Pick<IBook, 'name' | 'pages' | 'category' >;
+export type Data = Partial<Types>;
