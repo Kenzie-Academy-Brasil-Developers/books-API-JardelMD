@@ -1,8 +1,8 @@
 import { generateId, booksDatabase } from "../database/database";
-import { IBook, Data, Types } from "../interfaces/books.interfaces";
+import { IBook, TCreateBookBody, TEditBookBody } from "../interfaces/books.interfaces";
 
 export class BooksServices {
-    createBook(data:Types) {
+    createBook(data: TCreateBookBody) {
         const newBook: IBook = {
             id: generateId(),
             ...data,
@@ -13,7 +13,11 @@ export class BooksServices {
         return newBook;
     }
 
-    getBooks() {
+    getBooks(search?: any) {
+        if (search) {
+            const findBook = booksDatabase.find(book => book.name.includes(search));
+            return findBook;
+        }
         return booksDatabase;
     }
 
@@ -22,7 +26,7 @@ export class BooksServices {
         return findBook;
     }
 
-    updateBook(id: string, data:Data) {
+    updateBook(id: string, data: TEditBookBody) {
         const index = booksDatabase.findIndex(book => book.id === Number(id));
         booksDatabase[index] = {
             ...booksDatabase[index],

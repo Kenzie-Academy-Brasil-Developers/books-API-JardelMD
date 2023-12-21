@@ -1,3 +1,5 @@
+import { z } from "zod";
+import { createBookBodySchema, editBookBodySchema } from "../schemas/books.schemas";
 export interface IBook {
      id: number;
      name: string;
@@ -7,6 +9,6 @@ export interface IBook {
      updatedAt: Date;
 };
 
-export type Types = Pick<IBook, 'name' | 'pages' | 'category'>;
+export type TCreateBookBody = z.infer<typeof createBookBodySchema>;
 
-export type Data = Partial<Types>;
+export type TEditBookBody = z.infer<typeof editBookBodySchema>;
