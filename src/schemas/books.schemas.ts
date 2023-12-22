@@ -10,3 +10,7 @@ export const bookSchema = z.object({
 export const createBookBodySchema = bookSchema.omit({ id: true });
 
 export const editBookBodySchema = bookSchema.omit({ id: true }).partial();
+
+// export const searchBookSchema = z.object({
+//     search: z.string().optional()
+// })

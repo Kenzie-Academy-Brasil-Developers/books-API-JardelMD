@@ -12,3 +12,5 @@ export interface IBook {
 export type TCreateBookBody = z.infer<typeof createBookBodySchema>;
 
 export type TEditBookBody = z.infer<typeof editBookBodySchema>;
+
+// export type TSearchBook = z.infer<typeof searchBookSchema>;

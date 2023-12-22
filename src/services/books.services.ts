@@ -14,8 +14,8 @@ export class BooksServices {
     }
 
     getBooks(search?: any) {
-        if (search) {
-            const findBook = booksDatabase.find(book => book.name.includes(search));
+        if (search) {         
+            const findBook = booksDatabase.filter(book => book.name.toLowerCase().includes(search));     
             return findBook;
         }
         return booksDatabase;
