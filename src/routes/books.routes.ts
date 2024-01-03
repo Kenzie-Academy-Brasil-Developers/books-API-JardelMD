@@ -8,12 +8,19 @@ export const booksRouter = Router();
 
 const booksControllers = new BooksControllers();
 
-booksRouter.post("/", ValidateRequest.execute({ body: createBookBodySchema }), BookValidation.isBookNameValid, booksControllers.createBook);
+booksRouter.post("/", ValidateRequest.execute({ body: createBookBodySchema }),
+    BookValidation.isBookNameValid,
+    booksControllers.createBook);
 
 booksRouter.get("/", booksControllers.getBooks);
 
-booksRouter.get("/:id", BookValidation.isBookIdValid, booksControllers.getOneBook);
+booksRouter.get("/:id", BookValidation.isBookIdValid,
+    booksControllers.getOneBook);
 
-booksRouter.patch("/:id", ValidateRequest.execute({ body: editBookBodySchema }), BookValidation.isBookIdValid, BookValidation.isBookNameValid, booksControllers.updateBook);
+booksRouter.patch("/:id", ValidateRequest.execute({ body: editBookBodySchema }),
+    BookValidation.isBookIdValid,
+    BookValidation.isBookNameValid,
+    booksControllers.updateBook);
 
-booksRouter.delete("/:id", BookValidation.isBookIdValid, booksControllers.deleteBook);
+booksRouter.delete("/:id", BookValidation.isBookIdValid,
+    booksControllers.deleteBook);
