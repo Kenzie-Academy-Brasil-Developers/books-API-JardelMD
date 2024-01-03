@@ -4,13 +4,11 @@ export const bookSchema = z.object({
     id: z.number().positive(),
     name: z.string().min(3),
     pages: z.number().min(1),
-    category: z.string().optional()
+    category: z.string().optional(),
+    createdAt: z.date(),
+    updatedAt: z.date()
 });
 
-export const createBookBodySchema = bookSchema.omit({ id: true });
+export const createBookBodySchema = bookSchema.omit({ id: true, createdAt:true, updatedAt: true });
 
-export const editBookBodySchema = bookSchema.omit({ id: true }).partial();
-
-// export const searchBookSchema = z.object({
-//     search: z.string().optional()
-// })
+export const editBookBodySchema = bookSchema.omit({ id: true, createdAt:true, updatedAt: true }).partial();

@@ -1,9 +1,9 @@
 import { generateId, booksDatabase } from "../database/database";
-import { IBook, TCreateBookBody, TEditBookBody } from "../interfaces/books.interfaces";
+import { TBook, TCreateBookBody, TEditBookBody } from "../interfaces/books.interfaces";
 
 export class BooksServices {
     createBook(data: TCreateBookBody) {
-        const newBook: IBook = {
+        const newBook: TBook = {
             id: generateId(),
             ...data,
             createdAt: new Date(),
